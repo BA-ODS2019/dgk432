@@ -14,15 +14,15 @@ from nltk.corpus import stopwords
 # Getting access to  my downloaded Guardian text corpus - incl full text 
 # returns list of articles as strings from my dataset 
 #-------------------------------------------------
-def get_all_articles_texts( collection_subdir) :
+def get_all_articles_texts( collection_subdir, exclude_sectionIds) :
     # Update to the directory that contains your json files
     # Note the trailing /
 
 
-    include_sections = {'world', 'cities', 'money', 'media', 'community', 'commentisfree', 
-    'global-development', 'books', 'theobserver', 'society', 'info', 'business', 
-    'science', 'environment', 'technology', 'politics', 'global', 'news', 
-    'law', 'uk-news', 'us-news'}
+    #include_sections = {'world', 'cities', 'money', 'media', 'community', 'commentisfree', 
+    #'global-development', 'books', 'theobserver', 'society', 'info', 'business', 
+    #'science', 'environment', 'technology', 'politics', 'global', 'news', 
+    #'law', 'uk-news', 'us-news'}
 
     DATADIR = str( os.getenv('OPENDATASCIENCE_DATADIR') )
     # TIDLIGERE version kaldte jeg det -  directory_name = "../theguardian/collection/"
@@ -32,6 +32,7 @@ def get_all_articles_texts( collection_subdir) :
 
     unique_sectionIds = set()
     unique_articletypes = set()
+    excluded_articles_count = 0
     texts = list()
     for filename in os.listdir(directory_name):
         if filename.endswith(".json"):
@@ -39,7 +40,7 @@ def get_all_articles_texts( collection_subdir) :
                 data = json.load(json_file)
                 for article in data:
                     sectionId = article['sectionId']
-                    if sectionId in include_sections:
+                    if sectionId not in exclude_sectionIds:
                         unique_sectionIds.add(sectionId)
                         articletype = article['type']
                         unique_articletypes.add(articletype)
@@ -47,9 +48,13 @@ def get_all_articles_texts( collection_subdir) :
                         text = fields['bodyText'] if fields['bodyText'] else ""
                         # ids.append(id)
                         texts.append(text)
+                    else:
+                        excluded_articles_count += 1
 
     # print("Number of ids: %d" % len(ids))
-    print("Number of documents: %d" % len(texts))
+    print("Number of documents......... : %8d" % len(texts))
+    print("Number of excluded documents : %8d" % excluded_articles_count )
+
     print("Unique sectionIDs:" )
     print( unique_sectionIds )
     print("Unique article type:" )
@@ -122,9 +127,9 @@ def topwords( list_of_data ):
     
 
     # Show part of the document-term count matrix
-    # Give the indexes of the top-25 most used words.
+    # Give the indexes of the top-10most used words.
     counts = data_vect.sum(axis=0).A1
-    top_idxs = (-counts).argsort()[:25]
+    top_idxs = (-counts).argsort()[:10]
     
     # Give the words belonging to the top-10 indexes.
     # Tip: Use an inverted vocabulary (see slides) to get the words that match your indexes.
@@ -159,10 +164,17 @@ def topwords( list_of_data ):
 # MAIN PROGRAM ...
 
 
+no_excludes= set()
+exclude_sectionIds = {'culture', 'fashion', 'travel', 'technology', 'australia-news', 'film', 
+'education', 'clinique-beyond-beauty', 'provoking-progress', 'theobserver', 
+'breakthrough-science', 'kids-travel-guides', 'crosswords', 'football', 'born-adventurous', 'sport', 'raising-cats-and-dogs', 
+'fill-your-heart-with-ireland', 'membership', 'tv-and-radio', 'stage', 'science', 'the-a-to-z-of-sleep',
+'britain-get-talking', 'music', 'food', 'spains-secret-coast', 
+'cities', 'lifeandstyle', 'artanddesign', 'games', 'guardian-masterclasses'}
 
-
-list_of_articlefulltexts = get_all_articles_texts("theguardian/collection/")
-#list_of_articlefulltexts = get_all_articles_texts("theguardian/collection_full/")
+list_of_articlefulltexts = get_all_articles_texts("theguardian/collection/", exclude_sectionIds)
+#list_of_articlefulltexts = get_all_articles_texts("theguardian/collection/", no_excludes )
+#list_of_articlefulltexts = get_all_articles_texts("theguardian/collection_full/", exclude_sectionIds)
 
 article_top_words = topwords( list_of_articlefulltexts )
 word_count =  word_count( list_of_articlefulltexts)
