@@ -147,6 +147,8 @@ print(titanic.groupby('Pclass').count())
 
 
 
+
+
 print("Antal overlevende pr. klasse vises som Pivot tabel: ---------------")
 
 pt1 = titanic.pivot_table(columns = 'Pclass', values = 'Survived', aggfunc='sum')
