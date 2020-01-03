@@ -4,29 +4,37 @@ Det datasæt vi har fået foræret til at løse Portfolio nr. 1 handler om Titan
 Opgaven går ud på at foretage nogle enkle analyser på indhold i datasættet ved brug af Python og Pandas biblioteket, bl.a. 
 
 ## Opgaven lyder som følgende:
-* 1) Åben filen i en tekst-editor og se på indholdet.
-   * 1a) Hvilke data typer kan i identificere? (tekst / tal / typer af tal mv)
-   * 1b) Mangler der data?
-* 2) Ved at bruge panda – api skal i importere data til en dataframe
-   * 2a) Beskriv nu data-sættet med de funktioner der findes i Pandas til beskrivelse af en
+1. Åben filen i en tekst-editor og se på indholdet.
+
+    Hvilke data typer kan i identificere? (tekst / tal / typer af tal mv)
+
+   Mangler der data?
+2. Ved at bruge panda – api skal i importere data til en dataframe.
+
+    Beskriv nu data-sættet med de funktioner der findes i Pandas til beskrivelse af en
 dataframe ( se f.eks i https://datacarpentry.org/python-socialsci/08-Pandas/index.html )
-* 3) Og nu er det op til jer at udtrække og beregne på data i filen som kan give os informationer om de personer der var involveret i ulykken fx hvor mange overlevede?, gennemsnitsalder og medianen alder på personerne? (Dvs deskriptiv statistik)
-* 4) Findes der personer med samme efternavn?
-* 5) I skal nu lave en pivot-tabel som viser hvor mange der rejste på hhv 1., 2. og 3. klasse.
-    * 5a) Hvilken rejseklasse havde flest omkomne?
+
+3. Og nu er det op til jer at udtrække og beregne på data i filen som kan give os informationer om de personer der var involveret i ulykken fx hvor mange overlevede?, gennemsnitsalder og medianen alder på personerne? (Dvs deskriptiv statistik)
+
+4. Findes der personer med samme efternavn?
+
+5. I skal nu lave en pivot-tabel som viser hvor mange der rejste på hhv 1., 2. og 3. klasse.  
+
+    Hvilken rejseklasse havde flest omkomne?
 
 Løsningen på ovenstående opgave kan naturligvis ses i tilhørende python script - som kan findes via https://github.com/BA-ODS2019/dgk432/blob/master/P1/portfolio_1.py 
 
 ### Ad spm 1
-Indledningsvis har jeg blot åbnet filen via min editor ( Visual Code Studio i mit tilfælde) og med "menneskelige intellekt og egne øjne" tjekket datasættet for indhold, herunder kolonne overskrifter mv. Datasættet består at både tekst og heltal/decimaltal, og der synes ikke at mangle nogle data i de mange rækker af data. 
+Indledningsvis har jeg blot åbnet filen via min texteditor ( Visual Code Studio i mit tilfælde) og med "menneskelige intellekt og egne øjne" tjekket datasættet for indhold, herunder kolonne overskrifter mv. Datasættet består at både tekst og heltal/decimaltal, og der synes ikke at mangle nogle data i de mange rækker af data. 
 
 ### Ad spm. 2
-Her skal vi ved hjælp af data analyse processer skabe os et (digitalt) overblik over indholdet og formatet af den delte *.csv fil.
+Her skal vi ved hjælp af data analyse processer skabe os et (digitalt) overblik over indholdet og formatet af den delte *.csv fil. 
 Denne sidste process foregå ved hjælp af Python, samt to relevante "add on biblioteker", kaldet Pandas og Numpy. 
 Pandas er et Open Source Python bibliotek ideelt til indledende data analyse. Det gør det muligt at arbejde i Python med "spreadsheet like data for fast data loading, manipulating, aligning and merging" (https://learning.oreilly.com/library/view/pandas-for-everyone/9780134547046/).
 Pandas tilføjer nye datatyper til selve Python programmet, dels *Series* og *DataFrame*. DataFrame er unikt for Pandas, og repræsenterer hele ens spreadsheet/data i en RAMME, mens Series blot fokuserer på een enkelt kolonne af denne Dataframe.
 Numpy er ligeledes et Open Source bibliotek til Python, her er fokus på store, multi-dimensionelle "arrays og matrices" (tal), tilsat en pæn, stor samling af matematiske funktioner. 
 Pandas og Numpy er afhængige af hinanden og begge biblioteker skal/bør importeres til ens Python installation for optimal udnyttelse. 
+Datasættet er i første omgang undersøgt via en Data Carpentry lesson https://datacarpentry.org/python-socialsci/08-Pandas/index.html om basis Data Analyse vha Pandas.
 
 ### Ad spm. 3 - 4 og 5, så fremgår resultaterne af scriptet 
 Men eftersom at data automatisk indlæses som en DataFrame, så kan man let via enkle statements kan danne sig et overblik over størrelsen på ens datasæt eks. >>> print(titanic.shape) giver resultatet 8 kolonner/887 rækker, og >>> print(titanic.columns) giver mig overskrifterne på de 8 kolonner, som jeg efterfølgende skal arbejde med.

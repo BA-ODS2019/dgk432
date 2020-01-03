@@ -1,3 +1,5 @@
+
+```python
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -128,8 +130,6 @@ print(last_names)
 print('\n\nHvor mange rejsende har samme efternavn')  
 print(last_names.value_counts())
 
-
-
 # Spørgsmål 5 i Portfolio 1 opgaven lød på at lave en Pivot tabel,
 # som viser, hvor mange der rejste på henholdsvis 1, 2 og 3 klasse
 
@@ -142,7 +142,6 @@ plt.savefig("SurvivorsPrClass.png")
 
 
 print('\n\nAntal overlevende pr. køn vises som Pivot tabel: ' )
-
 pt2 = titanic.pivot_table(columns = 'Sex', values = 'Survived', aggfunc='sum')
 print(pt2)
 pt2.plot(kind='bar')
@@ -190,6 +189,5 @@ print('\nPrint til sidst de samlede titler kombineret med hvorvidt de overlevede
 print (titanic[['Title', 'Survived']].groupby(['Title'], as_index=False).mean())
 
 
-
-
+```
 

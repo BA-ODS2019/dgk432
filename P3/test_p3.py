@@ -14,8 +14,38 @@ import json
 from pandas.io.json import json_normalize
 import requests
 
-with open("response_1575208342694.json") as json_file:
+from pandas.io.json import json_normalize
+# json_normalize(sample_object)
+
+
+with open("response_1577463161987_final.json") as json_file:
     data = json.load(json_file)
+    
+#print(data)
+
+
+#sample_object = {'data'}
+#json_normalize(sample_object)
+ 
+
+def flatten_json(y):
+    out = {}
+
+    def flatten(x, name=''):
+        if type(x) is dict:
+            for a in x:
+                flatten(x[a], name + a + '_')
+        elif type(x) is list:
+            i = 0
+            for a in x:
+                flatten(a, name + str(i) + '_')
+                i += 1
+        else:
+            out[name[:-1]] = x
+            
+    flatten(y)
+    return out
+
    
 print(data)
 print(len(data['items']))
@@ -24,11 +54,20 @@ for item in data['items']:
     print(item)
     
 print(type(item))
+
+#dic_flattened = [flatten_json(d) for d in json['items']]
+dic_flattened = flatten_json(data['items'][0])       
+    
+print(dic_flattened)
+
+
+df= json_normalize(dic_flattened)
+json_normalize(data)
     
 print(json.dumps(data, indent=2))
 
 df = json_normalize(data['items'])
-df.loc[8]
+#df.loc[8]
 
 df.get_dtype_counts()
 

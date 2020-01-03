@@ -1,9 +1,13 @@
 ## dgk432
 
-Here you find all the "hand-ins" from class (BATV) 4900-E19;<p/>
-INF Open Data Science (BATV) at Copenhagen University. <p/>
+Here you find all the "hand-ins" from class (BATV) 4900-E19;<br/>
+(INF Open Data Science (BATV) at Copenhagen University.) <br/>
+A part of the Bachelor study - see more at page 7 about the class<br/>
+https://hum.ku.dk/uddannelser/aktuelle_studieordninger/informationsstudier/informationsvidenskab_og_kulturformidling_batv<p/>
 
-I used data from three different places ...<p/>
+The class had all its focus on working with data - understanding the programming language Python and getting access to data.<br/>
+
+During the class we used data from different places ...<p/>
 
 * For P1, we used a Titanic dataset for basic Data Analysis - provided to us by the teacher as a *.csv file
 * For P2, we had to collect/fetch the data from i.e. *The Guardian* - after having acquired "the API key" (open API)
