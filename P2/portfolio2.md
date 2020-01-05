@@ -1,8 +1,8 @@
-## Portfolio 2 documentation
+## Portfolio 2 documentation 
 
-By Jeannette Ekstrøm, 
-jeek [ at ] dtu.dk 
-student ID : dgk432 
+* By Jeannette Ekstrøm, 
+* jeek [ at ] dtu.dk 
+* student ID : dgk432 
 
 
 -------------------- 
@@ -51,7 +51,7 @@ The final script is with the complete dataset.
 
 ## Pre-processing unstructured data like news articles ( text mining )
 Preprocessing data/text is all about making better sense of the text, you are working with, and is a very common and useful task in text analysis.
-It's about discovering patterns and examining context, uniqueness and outliers of large chuncks of text, that being newsgroup data, novels like <b>Jane Austens<b/> *Emma* or like in our case, news articles and feature articles from a well known newspaper like The Guardian.
+It's about discovering patterns and examining context, uniqueness and outliers of large chuncks of text, that being newsgroup data, novels like <b>Jane Austens</b> *Emma* or like in our case, news articles and feature articles from a well known newspaper like The Guardian.
 
 Tokenization is the process of splitting a text into individual words or perhaps sequences of words (n-grams).(Ignatow & Mihalcea, 2018, page 101-103).
 Big decisions need to be thought through when using tokenization, one reason being language differences. Splitting words in the english language versus the danish language may see difficult in one iteration. But in most cases - I believe - the data that you want to use will be fetched from one source and therefore in one single language. At least in our Portfolio 2 case I grab news from The Guardian, all in english.
@@ -94,14 +94,3 @@ I have used # in my script, to explain how and what process I have done.
 * Ignatow & Mihalcea, 2018 
 https://us.sagepub.com/en-us/nam/an-introduction-to-text-mining/book249451
 
-
-________________________ 
-
-
-NEXT UP THE TWO SCRIPTS, THEY ARE ALSO AVAILABLE VIA GITHUB 
-
-1. GETTING THE DATA - https://github.com/BA-ODS2019/dgk432/blob/master/P2/gettingthedata.py 
-2. PREPROCESSING THE DATA - https://github.com/BA-ODS2019/dgk432/blob/master/P2/preprocessing.py 
-
-
-_____________

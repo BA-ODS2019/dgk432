@@ -71,4 +71,3 @@ Kurset har gjort, at jeg nu føler mig bedre rustet til de mange nye opgaver, so
 Det at kunne læse "et styk kode uden af flippe ud" og samtidig kunne omsætte dette til noget praktisk anvendeligt har været målet. Mine primære arbejdsopgaver handler om og har fokus på læring, formidling og videndeling. At være DATA SAVVY på et teknisk universitet er nødvendig. Og det er min overbevisning, at lidt programmeringskendskab kan lette mange opgaver i dagens forskningsbibliotek. Både overfor brugerne, men også i de mange daglige driftsopgaver, som finder sted i nutidens fag,- forsknings,- og universitetsbiblioteker. 
 At kunne tænke smarte løsninger ud fra "trivielle og gentagne opgaver" vil helt klart være mit fokus fremadrettet.
 
-# OUTPUT fra arbejdet med Titanic datasættet 
