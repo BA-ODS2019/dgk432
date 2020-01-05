@@ -329,9 +329,8 @@ def create_topics_wordcloud( list_of_data, title, filename ) :
     plt.suptitle(title)
     plt.savefig(filename)
 
-
-
-    # return topics_as_wordcloud
+    return 
+    
 #---------------------------------------------------------------
 # MAIN PROGRAM ...
 #---------------------------------------------------------------
@@ -345,9 +344,9 @@ do_not_exclude_anything= set()
 # below are some of my test-data-sets for fetching data - since the data range is very large, I have 
 # selected a few articles in a test collection for the text analysis / pre processing for increasing 
 # speed 
-list_of_articlefulltexts = get_all_articles_texts("theguardian/collection_test/", EXCLUDE_SECTION_IDS)
+#list_of_articlefulltexts = get_all_articles_texts("theguardian/collection_test/", EXCLUDE_SECTION_IDS)
 #list_of_articlefulltexts = get_all_articles_texts("theguardian/collection/", do_not_exclude_anything )
-#list_of_articlefulltexts = get_all_articles_texts("theguardian/collection_full/", EXCLUDE_SECTION_IDS)
+list_of_articlefulltexts = get_all_articles_texts("theguardian/collection_full/", EXCLUDE_SECTION_IDS)
 
 
 # 2. analyse and visualize full data set .....................
@@ -361,25 +360,21 @@ print("word_count: ........... %9i" % word_count)
 print("Unique word count: .... %9i" % unique_word_count)
 print("Average article length: %9i" % average_article_length)
 
-# 3. Search for ... Query: with which topics was "Bill Clinton" discussed? ...................
+# 3. Search for ... Query: with which topics was "Bill Clinton ... " discussed? ...................
 
 bill_clinton_articles = search_for( "Bill Clinton", list_of_articlefulltexts) 
-create_topics_wordcloud(bill_clinton_articles, "Topics Bill Clinton has discussed in Wordclouds", "clinton_wordcloud.png")
+create_topics_wordcloud(bill_clinton_articles, "Bill Clinton in Wordclouds", "clinton_wordcloud.png")
 
-trumps_articles = search_for( "Trump", list_of_articlefulltexts) 
-create_topics_wordcloud(trumps_articles, "Donald Trump statements as Wordclouds", "trump_wordcloud.png")
+trumps_articles = search_for( "Donald Trump", list_of_articlefulltexts) 
+create_topics_wordcloud(trumps_articles, "Donald Trump in Wordclouds", "trump_wordcloud.png")
 
 climate_articles = search_for( "Climate change", list_of_articlefulltexts) 
-create_topics_wordcloud(climate_articles, "Climate Change Topic Wordclouds", "climate_wordcloud.png")
+create_topics_wordcloud(climate_articles, "Climate Change Topics in Wordclouds", "climate_wordcloud.png")
 
-#thunbergs_articles = search_for( "Greta Thunberg", list_of_articlefulltexts) 
-#thunberg_topics_wordcloud = create_topics_wordcloud(thunbergs_articles)
+thunbergs_articles = search_for( "Greta Thunberg", list_of_articlefulltexts) 
+create_topics_wordcloud(thunbergs_articles, "Greta Thunberg in Wordclouds", "thunberg_wordcloud.png")
 
-# TODO: found_articles_topics = find_topics( found_articles )
-# TODO: show_topics( found_articles_topics )
 
 # --------------
 
-
-#print ( article_top_words) 
 
